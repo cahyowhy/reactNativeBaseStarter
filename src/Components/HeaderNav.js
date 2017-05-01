@@ -4,19 +4,56 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { Title, Header, Body, Left, Icon, Right, Button, Container, Content } from 'native-base';
+import React, {Component} from 'react';
+import {Title, Header, Body, Left, Icon, Right, Button, ListItem, Text, Switch, Content} from 'native-base';
 import {View} from 'react-native';
-import Dimensions from 'Dimensions';
+import Styles from './Styles';
 
 export default class HeaderNav extends Component {
     render() {
-        console.log(Dimensions.get('window'));
-        const width= Dimensions.get('window').width*0.8;
-        const height= Dimensions.get('window').height;
+        let isDrawerOpen = this.props.isDrawerOpened ? Styles.DrawerMain : Styles.Hide;
         return (
             <View>
-                <Header>
+                <View style={isDrawerOpen}>
+                    <Content>
+                        <ListItem icon>
+                            <Left>
+                                <Icon name="plane"/>
+                            </Left>
+                            <Body>
+                            <Text>Airplane Mode</Text>
+                            </Body>
+                            <Right>
+                                <Switch value={false}/>
+                            </Right>
+                        </ListItem>
+                        <ListItem icon>
+                            <Left>
+                                <Icon name="wifi"/>
+                            </Left>
+                            <Body>
+                            <Text>Wi-Fi</Text>
+                            </Body>
+                            <Right>
+                                <Text>GeekyAnts</Text>
+                                <Icon name="arrow-forward"/>
+                            </Right>
+                        </ListItem>
+                        <ListItem icon>
+                            <Left>
+                                <Icon name="bluetooth"/>
+                            </Left>
+                            <Body>
+                            <Text>Bluetooth</Text>
+                            </Body>
+                            <Right>
+                                <Text>On</Text>
+                                <Icon name="arrow-forward"/>
+                            </Right>
+                        </ListItem>
+                    </Content>
+                </View>
+                <Header style={Styles.Header}>
                     <Left>
                         <Button transparent><Icon name='arrow-back'/></Button>
                     </Left>
@@ -24,14 +61,9 @@ export default class HeaderNav extends Component {
                     <Title>Main title</Title>
                     </Body>
                     <Right>
-                        <Button transparent><Icon name='menu'/></Button>
+                        <Button transparent onPress={this.props.onDrawerOpened}><Icon name='menu'/></Button>
                     </Right>
                 </Header>
-                {/*<View style={{width :width, height:height, backgroundColor:'red', position:'absolute', zIndex:21 }}>
-                    <Content>
-
-                    </Content>
-                </View>*/}
             </View>
         );
     }

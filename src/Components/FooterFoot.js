@@ -5,7 +5,7 @@ import Styles from './Styles';
 
 export default class FooterFoot extends Component {
     render() {
-        let isDisplayed = this.props.hide ? {} : Styles.Hide;
+        let isDisplayed = this.props.hide ? Styles.Hide : {};
         return (
             <View style={isDisplayed}>
                 <Footer style={Styles.FooterFoot}>
