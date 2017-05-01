@@ -4,6 +4,7 @@ import HeaderNav from './Components/HeaderNav';
 import FooterFoot from './Components/FooterFoot';
 import Styles from './Components/Styles';
 import ListAvatarExample from './Components/ListAvatarExample';
+import {Tabs} from './Router';
 let timer;
 export default class anyarReact extends Component {
     constructor(props){
@@ -35,6 +36,7 @@ export default class anyarReact extends Component {
                 <HeaderNav isDrawerOpened={this.state.isDrawerOpened} onDrawerOpened={this.onDrawerOpened}/>
                 <ListAvatarExample onScrolled={this.onScrolled} isScrolling={this.state.isScrolling}/>
                 <FooterFoot hide={this.state.isScrolling || this.state.isDrawerOpened}/>
+                {/*<Tabs/>*/}
             </View>
         );
     }
