@@ -2,7 +2,9 @@ import {
     StackNavigator,
 } from 'react-navigation';
 import Profile from './Profile';
-import Profile2 from './Profile2';
+import Camera from './Camera';
+import Direction from './Direction';
+import People from './People';
 import Main from './App';
 
 export const Route = StackNavigator({
@@ -13,6 +15,8 @@ export const Route = StackNavigator({
             header:null
         },
     },
+    Camera: {screen: Camera},
+    Direction: {screen: Direction},
     Profile: {screen: Profile},
-    Profile2: {screen: Profile2},
+    People: {screen: People}
 });

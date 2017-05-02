@@ -10,16 +10,16 @@ export default class FooterFoot extends Component {
             <View style={isDisplayed}>
                 <Footer style={Styles.FooterFoot}>
                     <FooterTab>
-                        <Button>
+                        <Button onPress={this.props.onTransitionApp}>
                             <Icon name='apps'/>
                         </Button>
-                        <Button>
+                        <Button onPress={this.props.onTransitionCam}>
                             <Icon name='camera'/>
                         </Button>
-                        <Button>
+                        <Button onPress={this.props.onTransitionDir}>
                             <Icon name='navigate'/>
                         </Button>
-                        <Button>
+                        <Button onPress={this.props.onTransitionPeople}>
                             <Icon name='person'/>
                         </Button>
                     </FooterTab>
