@@ -6,7 +6,6 @@ import Style from './Components/Styles';
 export default class Profile extends Component {
     constructor(props){
         super(props);
-        this.showAlert = this.showAlert.bind(this)
     }
 
     static navigationOptions = ({ navigation }) => ({
