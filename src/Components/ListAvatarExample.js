@@ -3,6 +3,10 @@ import {Container, Content, List, ListItem, Thumbnail, Text, Body, Left, Right} 
 import {View, ScrollView} from 'react-native';
 import items from './ListData';
 export default class ListAvatarExample extends Component {
+    constructor(props){
+        super(props);
+    }
+
     render() {
         return (
             <Container>

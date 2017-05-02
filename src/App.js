@@ -38,7 +38,6 @@ export default class anyarReact extends Component {
     render() {
         return (
             <View style={Styles.MainView}>
-                {/*<Button onPress={this.onRouteToProfile}><Text>Press</Text></Button>*/}
                 <HeaderNav isDrawerOpened={this.state.isDrawerOpened} onDrawerOpened={this.onDrawerOpened}/>
                 <ListAvatarExample onTransitionProfile={this.onRouteToProfile} onScrolled={this.onScrolled} isScrolling={this.state.isScrolling}/>
                 <FooterFoot hide={this.state.isScrolling || this.state.isDrawerOpened}/>
