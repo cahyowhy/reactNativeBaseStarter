@@ -1,26 +1,18 @@
-/**
- * Created by MGS on 5/1/2017.
- */
-import React from 'react';
-import { TabNavigator } from 'react-navigation';
-import { Icon } from 'native-base';
-
+import {
+    StackNavigator,
+} from 'react-navigation';
 import Profile from './Profile';
 import Profile2 from './Profile2';
+import Main from './App';
 
-export const Tabs = TabNavigator({
-    App: {
-        screen: Profile2,
+export const Route = StackNavigator({
+    Main: {
+        screen: Main,
         navigationOptions: {
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
-        }
-    },
-    Profile: {
-        screen: Profile,
-        navigationOptions: {
-            tabBarLabel: 'Profile2',
-            tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+            title: 'Main',
+            header:null
         },
     },
+    Profile: {screen: Profile},
+    Profile2: {screen: Profile2},
 });

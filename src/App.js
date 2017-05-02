@@ -5,6 +5,7 @@ import FooterFoot from './Components/FooterFoot';
 import Styles from './Components/Styles';
 import ListAvatarExample from './Components/ListAvatarExample';
 import {Tabs} from './Router';
+import {Button} from 'native-base';
 let timer;
 export default class anyarReact extends Component {
     constructor(props){
@@ -12,12 +13,16 @@ export default class anyarReact extends Component {
         this.state={isScrolling:false, isDrawerOpened:false};
         this.onScrolled=this.onScrolled.bind(this);
         this.onDrawerOpened=this.onDrawerOpened.bind(this);
+        this.onRouteToProfile=this.onRouteToProfile.bind(this);
     }
     onDrawerOpened(){
         const context = this;
         this.setState({
             isDrawerOpened: !context.state.isDrawerOpened
         });
+    }
+    onRouteToProfile(){
+        this.props.navigation.navigate('Profile');
     }
     onScrolled(){
         const context = this;
@@ -33,10 +38,10 @@ export default class anyarReact extends Component {
     render() {
         return (
             <View style={Styles.MainView}>
+                {/*<Button onPress={this.onRouteToProfile}><Text>Press</Text></Button>*/}
                 <HeaderNav isDrawerOpened={this.state.isDrawerOpened} onDrawerOpened={this.onDrawerOpened}/>
-                <ListAvatarExample onScrolled={this.onScrolled} isScrolling={this.state.isScrolling}/>
+                <ListAvatarExample onTransitionProfile={this.onRouteToProfile} onScrolled={this.onScrolled} isScrolling={this.state.isScrolling}/>
                 <FooterFoot hide={this.state.isScrolling || this.state.isDrawerOpened}/>
-                {/*<Tabs/>*/}
             </View>
         );
     }

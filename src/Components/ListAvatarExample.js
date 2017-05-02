@@ -9,7 +9,7 @@ export default class ListAvatarExample extends Component {
                 <ScrollView onScroll={this.props.onScrolled}>
                     <Content>
                         <List dataArray={items} renderRow={(item) =>
-                      <ListItem avatar>
+                      <ListItem avatar onPress={this.props.onTransitionProfile}>
                             <Left>
                                 <Thumbnail source={require('../images/user.png')}/>
                             </Left>
