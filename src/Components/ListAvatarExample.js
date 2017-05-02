@@ -3,8 +3,13 @@ import {Container, Content, List, ListItem, Thumbnail, Text, Body, Left, Right} 
 import {View, ScrollView} from 'react-native';
 import items from './ListData';
 export default class ListAvatarExample extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.profileRoute=this.profileRoute.bind(this);
+    }
+
+    profileRoute(item) {
+        this.props.onTransitionProfile(item);
     }
 
     render() {
@@ -13,7 +18,7 @@ export default class ListAvatarExample extends Component {
                 <ScrollView onScroll={this.props.onScrolled}>
                     <Content>
                         <List dataArray={items} renderRow={(item) =>
-                      <ListItem avatar onPress={this.props.onTransitionProfile}>
+                      <ListItem avatar onPress={()=>this.profileRoute(item)}>
                             <Left>
                                 <Thumbnail source={require('../images/user.png')}/>
                             </Left>

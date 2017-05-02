@@ -21,8 +21,8 @@ export default class anyarReact extends Component {
             isDrawerOpened: !context.state.isDrawerOpened
         });
     }
-    onRouteToProfile(){
-        this.props.navigation.navigate('Profile');
+    onRouteToProfile(item){
+        this.props.navigation.navigate('Profile',{items:item});
     }
     onScrolled(){
         const context = this;
