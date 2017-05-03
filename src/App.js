@@ -10,7 +10,7 @@ let timer;
 export default class anyarReact extends Component {
     constructor(props) {
         super(props);
-        this.state = {isScrolling: false, isDrawerOpened: false};
+        this.state = {isScrolling: false, isDrawerOpened: false, initialPosition: null, lastPosition: null};
         this.onScrolled = this.onScrolled.bind(this);
         this.onDrawerOpened = this.onDrawerOpened.bind(this);
         this.onRouteToProfile = this.onRouteToProfile.bind(this);
@@ -18,6 +18,27 @@ export default class anyarReact extends Component {
         this.onRouteToCamera = this.onRouteToCamera.bind(this);
         this.onRouteToDirection = this.onRouteToDirection.bind(this);
         this.onRouteToApp = this.onRouteToApp.bind(this);
+    }
+
+    watchID: ?number = null;
+
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                let initialPosition = JSON.stringify(position);
+                this.setState({initialPosition});
+            },
+            (error) => alert(JSON.stringify(error)),
+            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+        );
+        this.watchID = navigator.geolocation.watchPosition((position) => {
+            let lastPosition = JSON.stringify(position);
+            this.setState({lastPosition});
+        });
+    }
+
+    componentWillUnmount() {
+        navigator.geolocation.clearWatch(this.watchID);
     }
 
     onDrawerOpened() {
