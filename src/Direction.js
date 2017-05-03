@@ -4,6 +4,7 @@ import MapView from 'react-native-maps';
 import Style from './Components/Styles';
 import {Button, Icon} from 'native-base';
 import AutoCompleteMap from './Components/AutoCompleteMap';
+import GeoLocation from './Components/GeoLocation';
 
 export default class Direction extends Component {
     constructor(props) {
@@ -68,6 +69,7 @@ export default class Direction extends Component {
     render() {
         return (
             <View style={Style.mapContainer}>
+                <Geolocation></Geolocation>
                 <MapView style={Style.map} region={this.state.region} onRegionChange={this.onRegionChange}>
                     <MapView.Marker draggable
                                     coordinate={this.state.marker.latlng}

@@ -5,7 +5,7 @@ import FooterFoot from './Components/FooterFoot';
 import Styles from './Components/Styles';
 import ListAvatarExample from './Components/ListAvatarExample';
 import {Tabs} from './Router';
-import {Button} from 'native-base';
+import Geolocation from './Components/GeoLocation';
 let timer;
 export default class anyarReact extends Component {
     constructor(props) {
@@ -18,27 +18,18 @@ export default class anyarReact extends Component {
         this.onRouteToCamera = this.onRouteToCamera.bind(this);
         this.onRouteToDirection = this.onRouteToDirection.bind(this);
         this.onRouteToApp = this.onRouteToApp.bind(this);
+        this.onSetInitialPosition = this.onSetInitialPosition.bind(this);
+        this.onSetLastPosition = this.onSetLastPosition.bind(this);
     }
 
-    watchID: ?number = null;
-
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                let initialPosition = JSON.stringify(position);
-                this.setState({initialPosition});
-            },
-            (error) => alert(JSON.stringify(error)),
-            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-        );
-        this.watchID = navigator.geolocation.watchPosition((position) => {
-            let lastPosition = JSON.stringify(position);
-            this.setState({lastPosition});
-        });
+    onSetInitialPosition(initialPosition){
+        this.setState({initialPosition});
+        console.log(initialPosition);
     }
 
-    componentWillUnmount() {
-        navigator.geolocation.clearWatch(this.watchID);
+    onSetLastPosition(lastPosition){
+        this.setState({lastPosition});
+        console.log(lastPosition);
     }
 
     onDrawerOpened() {
@@ -83,6 +74,7 @@ export default class anyarReact extends Component {
     render() {
         return (
             <View style={Styles.MainView}>
+                <Geolocation onSetInitalPos={this.onSetInitialPosition} onSetLastPos={this.onSetLastPosition}></Geolocation>
                 <HeaderNav isDrawerOpened={this.state.isDrawerOpened} onDrawerOpened={this.onDrawerOpened}/>
                 <ListAvatarExample onTransitionProfile={this.onRouteToProfile} onScrolled={this.onScrolled}
                                    isScrolling={this.state.isScrolling}/>
