@@ -18,6 +18,7 @@ export default class OmniBox extends Component {
     }
 
     onChange(event){
+        console.log(event);
         var title = event.nativeEvent.text;
         var dataList = this.props.data.filter((item) => item.title.match(new RegExp('.*' + title +'.*', 'gi')));
 
@@ -28,7 +29,31 @@ export default class OmniBox extends Component {
     }
 
     onKeyPress(event){
-        if (event.nativeEvent.key == 'Enter' && this.state.newValue) {
+        console.log(event);
+        console.log(event);
+        var newDataItem = new TodoModel(this.state.newValue);
+
+        var dataList = this.props.data;
+        var dataItem = Utils.findTodo(newDataItem, dataList);
+        if(dataItem) {
+            Utils.move(dataList, (dataList.indexOf(dataItem)), 0);
+
+            this.setState({
+                newValue: ''
+            });
+            this.props.updateDataList(dataList);
+            return;
+        }
+
+        dataList.unshift(newDataItem);
+        TodoService.save(newDataItem);
+
+        this.setState({
+            newValue: ''
+        });
+        this.props.updateDataList(dataList);
+        /*if (event.nativeEvent.key == 'Enter' && this.state.newValue) {
+            console.log(event);
             var newDataItem = new TodoModel(this.state.newValue);
 
             var dataList = this.props.data;
@@ -50,7 +75,7 @@ export default class OmniBox extends Component {
                 newValue: ''
             });
             this.props.updateDataList(dataList);
-        }
+        }*/
     }
 
     render() {
@@ -59,7 +84,7 @@ export default class OmniBox extends Component {
                        placeholder='Add a todo or Search'
                        blurOnSubmit={false}
                        value={this.state.newValue}
-                       onKeyPress={this.onKeyPress}
+                       onSubmitEditing={this.onKeyPress}
                        onChange={this.onChange}>
             </TextInput>
         );

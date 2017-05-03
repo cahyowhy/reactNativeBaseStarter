@@ -21,7 +21,7 @@ export default class CheckBox extends Component {
         let color = this.props.color || '#000';
 
         return (
-            <Icon
+            <Icon.Button
                 data={this.state.data}
                 name={iconName}
                 backgroundColor='rgba(0,0,0,0)'
@@ -33,7 +33,7 @@ export default class CheckBox extends Component {
                 borderRadius={5}
                 onPress={this.props.onCheckBoxPressed}
             >
-            </Icon>
+            </Icon.Button>
         );
     }
 }
