@@ -4,6 +4,8 @@ import {StyleSheet} from 'react-native';
 const width = Dimensions.get('window').width * 0.8;
 const fullwidth = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
+console.log(width);
+console.log(height);
 const Styles = {
     FooterFoot: {
         position: 'absolute', flex: 0.1, left: 0, right: 0, bottom: 0, backgroundColor: 'green',
@@ -14,7 +16,7 @@ const Styles = {
     Hide: {display: 'none'},
     mapContainer: {
         ...StyleSheet.absoluteFillObject,
-        height: height-80,
+        height: height,
         width: fullwidth,
         justifyContent: 'flex-end',
         alignItems: 'center',
@@ -22,14 +24,12 @@ const Styles = {
     map: {
         ...StyleSheet.absoluteFillObject,
     },
-    TextButtonPickedPlace:{
-        textAlign:'center',
-        color:'white'
-    },
     ButtonPickedPlace:{
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        borderRadius:0,
+        position:'absolute',
+        top:100,
+        left:0,
+        marginBottom:0,
+        bottom:0,
         width:fullwidth
     },
     DrawerMain: {width: width, height: height, backgroundColor: 'white', position: 'absolute', zIndex: 21}
