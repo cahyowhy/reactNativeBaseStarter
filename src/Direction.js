@@ -10,6 +10,7 @@ export default class Direction extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            draggable:true,
             region: {
                 latitude: 37.78825,
                 longitude: -122.4324,
@@ -116,7 +117,7 @@ export default class Direction extends Component {
                 <GeoLocation onSetInitalPos={this.onSetInitialPosition}
                              onSetLastPos={this.onSetLastPosition}/>
                 <MapView style={Style.map} region={this.state.region} onRegionChange={this.onRegionChange}>
-                    <MapView.Marker draggable
+                    <MapView.Marker draggable={this.state.draggable}
                                     coordinate={this.state.marker.latlng}
                                     title={this.state.marker.title}
                                     description={this.state.marker.description}

@@ -71,6 +71,9 @@
 		0DA1FC6A93594E99B64C2E51 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F02D32A4EBF4476DBC28FC09 /* Zocial.ttf */; };
 		53B4AE95FDCB43E0B03383D0 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38729E65D2B4919A1A30182 /* libAirMaps.a */; };
 		EEAD84226C394B2BBCA87899 /* libRNGooglePlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DD232378184FC0A71E4CB2 /* libRNGooglePlaces.a */; };
+		A6955D2815FF4F33A11441E6 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C8C57FFE2B4B4C8495D3D8 /* libRealmReact.a */; };
+		63FC18A5A87249E4B8E5EE09 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AF646193DA0A4869BFB46072 /* libc++.tbd */; };
+		73430B58E7B24F048669D955 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A01E0FB0704453FA3BF90C8 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +331,10 @@
 		A38729E65D2B4919A1A30182 /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		75FDE07848DD4C5481BF5A00 /* RNGooglePlaces.xcodeproj */ = {isa = PBXFileReference; name = "RNGooglePlaces.xcodeproj"; path = "../node_modules/react-native-google-places/ios/RNGooglePlaces.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		63DD232378184FC0A71E4CB2 /* libRNGooglePlaces.a */ = {isa = PBXFileReference; name = "libRNGooglePlaces.a"; path = "libRNGooglePlaces.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		C9353729E3C5491C87A2C5FB /* RealmReact.xcodeproj */ = {isa = PBXFileReference; name = "RealmReact.xcodeproj"; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C3C8C57FFE2B4B4C8495D3D8 /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		AF646193DA0A4869BFB46072 /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		9A01E0FB0704453FA3BF90C8 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +363,9 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				53B4AE95FDCB43E0B03383D0 /* libAirMaps.a in Frameworks */,
 				EEAD84226C394B2BBCA87899 /* libRNGooglePlaces.a in Frameworks */,
+				A6955D2815FF4F33A11441E6 /* libRealmReact.a in Frameworks */,
+				63FC18A5A87249E4B8E5EE09 /* libc++.tbd in Frameworks */,
+				73430B58E7B24F048669D955 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +534,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				2F29DDA5EF8D4312B9A372EB /* AirMaps.xcodeproj */,
 				75FDE07848DD4C5481BF5A00 /* RNGooglePlaces.xcodeproj */,
+				C9353729E3C5491C87A2C5FB /* RealmReact.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -545,6 +556,7 @@
 				00E356EF1AD99517003FC87E /* anyarReactTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				7A4FB1391A8143DE88B66FFB /* Resources */,
+				498633A17893415D9A3F1213 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -600,6 +612,16 @@
 				F02D32A4EBF4476DBC28FC09 /* Zocial.ttf */,
 			);
 			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
+		498633A17893415D9A3F1213 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF646193DA0A4869BFB46072 /* libc++.tbd */,
+				9A01E0FB0704453FA3BF90C8 /* libz.tbd */,
+			);
+			name = Frameworks;
 			path = "";
 			sourceTree = "<group>";
 		};
@@ -1130,11 +1152,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
 				);
 			};
 			name = Debug;
@@ -1157,11 +1181,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
 				);
 			};
 			name = Release;
@@ -1185,6 +1211,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
 				);
 			};
 			name = Debug;
@@ -1207,6 +1234,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
 				);
 			};
 			name = Release;
@@ -1238,11 +1266,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
 				);
 			};
 			name = Debug;
@@ -1274,11 +1304,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
 				);
 			};
 			name = Release;
@@ -1305,6 +1337,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1329,6 +1362,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
