@@ -22,14 +22,24 @@ export default class anyarReact extends Component {
         this.onSetLastPosition = this.onSetLastPosition.bind(this);
     }
 
-    onSetInitialPosition(initialPosition){
-        this.setState({initialPosition});
-        console.log(initialPosition);
+    onSetInitialPosition(initialPosition) {
+        initialPosition = JSON.parse(initialPosition);
+        this.setState({
+            initialPosition: {
+                latitude: initialPosition.coords.latitude,
+                longitude: initialPosition.coords.longitude
+            }
+        });
     }
 
-    onSetLastPosition(lastPosition){
-        this.setState({lastPosition});
-        console.log(lastPosition);
+    onSetLastPosition(lastPosition) {
+        lastPosition = JSON.parse(lastPosition);
+        this.setState({
+            lastPosition: {
+                latitude: lastPosition.coords.latitude,
+                longitude: lastPosition.coords.longitude
+            }
+        });
     }
 
     onDrawerOpened() {
@@ -74,7 +84,8 @@ export default class anyarReact extends Component {
     render() {
         return (
             <View style={Styles.MainView}>
-                <Geolocation onSetInitalPos={this.onSetInitialPosition} onSetLastPos={this.onSetLastPosition}></Geolocation>
+                <Geolocation onSetInitalPos={this.onSetInitialPosition}
+                             onSetLastPos={this.onSetLastPosition}></Geolocation>
                 <HeaderNav isDrawerOpened={this.state.isDrawerOpened} onDrawerOpened={this.onDrawerOpened}/>
                 <ListAvatarExample onTransitionProfile={this.onRouteToProfile} onScrolled={this.onScrolled}
                                    isScrolling={this.state.isScrolling}/>
