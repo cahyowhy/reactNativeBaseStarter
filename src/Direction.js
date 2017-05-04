@@ -117,7 +117,7 @@ export default class Direction extends Component {
                 <GeoLocation onSetInitalPos={this.onSetInitialPosition}
                              onSetLastPos={this.onSetLastPosition}/>
                 <MapView style={Style.map} region={this.state.region} onRegionChange={this.onRegionChange}>
-                    <MapView.Marker draggable={this.state.draggable}
+                    <MapView.Marker draggable
                                     coordinate={this.state.marker.latlng}
                                     title={this.state.marker.title}
                                     description={this.state.marker.description}
