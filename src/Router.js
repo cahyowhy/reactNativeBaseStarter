@@ -11,11 +11,15 @@ export const Route = StackNavigator({
     Main: {
         screen: Main,
         navigationOptions: {
-            title: 'Main',
-            header:null
+            header: null
         },
     },
-    Camera: {screen: Camera},
+    Camera: {
+        screen: Camera,
+        navigationOptions: {
+            header: null
+        },
+    },
     Direction: {screen: Direction},
     Profile: {screen: Profile},
     People: {screen: People}

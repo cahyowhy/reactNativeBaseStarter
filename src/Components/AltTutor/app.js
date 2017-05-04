@@ -1,25 +1,38 @@
-'use strict';
-
-import React from 'react-native';
-
-/* Alt/Flux */
+import React, {Component} from 'react';
 import MessageStore from './stores/MessageStore';
+import {View, Text, StyleSheet, ListView, ActivityIndicatorIOS} from 'react-native';
+import MessageContainer from './components/MessageContainer';
+import LocationTextInput from './components/LocationTextInput';
+import {ListItem} from 'native-base';
 
-/* Components */
-import { MessageContainer } from './components/MessageContainer';
-import { LocationTextInput } from './components/LocationTextInput';
+let styles = StyleSheet.create({
+  appContainer: {
+    backgroundColor: 'white'
+  },
+  inputContainer: {
+    flex: 1,
+    alignItems: 'center',
+    borderRadius: 10
+  },
+  messagesView: {
+    backgroundColor: 'white',
+    height: require('Dimensions').get('window').height - 50
+  },
+  errorText: {
+    fontFamily: 'Avenir',
+    fontSize: 20
+  },
+  centering: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  loading: {
+    height: 100,
+    marginTop: 60
+  }
+});
 
-let {
-
-  StyleSheet,
-  Text,
-  View,
-  ListView,
-  ActivityIndicatorIOS,
-
-} = React;
-
-export class App extends React.Component {
+export default class App extends Component {
 
   constructor(){
     super();
@@ -27,6 +40,7 @@ export class App extends React.Component {
     this.state.dataSource = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
+    this.renderRow = this.renderRow.bind(this);
   }
 
   componentDidMount() {
@@ -88,35 +102,13 @@ export class App extends React.Component {
   }
 
   renderRow(message){
+    console.log(message);
     return (
-      <MessageContainer message={message} />
+        <ListItem>
+          <Text>{message.body}</Text>
+        </ListItem>
     );
   }
 }
 
-var styles = StyleSheet.create({
-  appContainer: {
-    backgroundColor: 'white'
-  },
-  inputContainer: {
-    flex: 1,
-    alignItems: 'center',
-    borderRadius: 10
-  },
-  messagesView: {
-    backgroundColor: 'white',
-    height: require('Dimensions').get('window').height - 50
-  },
-  errorText: {
-    fontFamily: 'Avenir',
-    fontSize: 20
-  },
-  centering: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  loading: {
-    height: 100,
-    marginTop: 60
-  }
-});
+

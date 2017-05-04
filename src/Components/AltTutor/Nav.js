@@ -1,20 +1,16 @@
 'use strict';
-
-import React from 'react-native';
-import { App } from './app';
+import App from './app';
 import NavigationBar from 'react-native-navbar';
+import React, {Component} from 'react';
+import {View, Navigator, StyleSheet} from 'react-native';
 
-const { Navigator, View, StyleSheet } = React;
-
-export class Navigation extends React.Component {
-
-  constructor(){
-    super()
-    this.renderScene = this.renderScene.bind(this)
+export class Navigation extends Component {
+  constructor(props){
+    super(props);
+    this.renderScene = this.renderScene.bind(this);
   }
 
   render() {
-
     const titleConfig = {
       title: 'React Native Alt Demo',
       tintColor: 'white'
