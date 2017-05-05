@@ -5,14 +5,17 @@
  */
 
 import React, {Component} from 'react';
-import { AppRegistry } from 'react-native';
+import {AppRegistry, View} from 'react-native';
+import {Container} from 'native-base';
 /*import App from './src/App';*/
 /*import {BasicApp} from './src/example/BasicApp';*/
-import {Tab} from './src/Router';
+import {Tab, Route} from './src/Router';
 export default class anyarReact extends Component {
     render() {
         return (
-            <Tab/>
+            <Container>
+                <Tab/>
+            </Container>
         );
     }
 }

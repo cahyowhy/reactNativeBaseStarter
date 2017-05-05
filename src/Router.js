@@ -6,46 +6,50 @@ import Camera from './Camera';
 import Direction from './Direction';
 import People from './People';
 import Main from './App';
+import {StyleSheet} from 'react-native';
 import {Icon} from 'native-base';
 import React, {Component} from 'react';
 
-export const Tab = TabNavigator({
+export const Route = StackNavigator({
     Main: {
         screen: Main,
-        tabBarIcon: <Icon name="apps" />
+        navigationOptions: {
+            header: null
+        },
     },
-    Camera: {
-        screen: Camera,
-        tabBarIcon: <Icon name="apps" />
-    },
-    Direction: {
-        screen: Direction,
-        tabBarIcon: <Icon name="camera" />
-    },
-    /*Profile: {
-     screen: Profile,
-     tabBarIcon: <Icon name="navigate" />,
-     },*/
-    People: {
-        screen: People,
-        tabBarIcon: <Icon name="person" />,
-    }
+    Profile: {screen: Profile}
 });
 
-const Route = StackNavigator({
-    Main: {
-        screen: Main,
-        navigationOptions: {
-            header: null
+export const Tab = TabNavigator({
+        Main: {
+            screen: Route,
+            navigationOptions: {
+                tabBarIcon: ({tintColor}) => <Icon name="apps" style={{color:'white'}}/>,
+            }
         },
-    },
-    Camera: {
-        screen: Camera,
-        navigationOptions: {
-            header: null
+        Camera: {
+            screen: Camera,
+            navigationOptions: {
+                tabBarIcon: ({tintColor}) => <Icon name="camera" style={{color:'white'}}/>,
+            }
         },
-    },
-    Direction: {screen: Direction},
-    Profile: {screen: Profile},
-    People: {screen: People}
-});
+        Direction: {
+            screen: Direction,
+            navigationOptions: {
+                tabBarIcon: ({tintColor}) => <Icon name="navigate" style={{color:'white'}}/>,
+            }
+        },
+        People: {
+            screen: People,
+            navigationOptions: {
+                tabBarIcon: ({tintColor}) => <Icon name="person" style={{color:'white'}}/>,
+            }
+        }
+    }, {
+        tabBarOptions: {
+            showIcon: true,
+            showLabel: false
+        },
+        tabBarPosition: 'bottom'
+    }
+);

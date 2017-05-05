@@ -89,9 +89,9 @@ export default class anyarReact extends Component {
                 <HeaderNav isDrawerOpened={this.state.isDrawerOpened} onDrawerOpened={this.onDrawerOpened}/>
                 <ListAvatarExample onTransitionProfile={this.onRouteToProfile} onScrolled={this.onScrolled}
                                    isScrolling={this.state.isScrolling}/>
-                <FooterFoot onTransitionApp={this.onRouteToApp} onTransitionCam={this.onRouteToCamera}
+                {/*<FooterFoot onTransitionApp={this.onRouteToApp} onTransitionCam={this.onRouteToCamera}
                             onTransitionPeople={this.onRouteToPeople} onTransitionDir={this.onRouteToDirection}
-                            hide={this.state.isScrolling || this.state.isDrawerOpened}/>
+                            hide={this.state.isScrolling || this.state.isDrawerOpened}/>*/}
             </View>
         );
     }
