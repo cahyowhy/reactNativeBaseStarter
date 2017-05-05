@@ -22,21 +22,15 @@ export default class AutoCompleteMap extends Component {
                     latitude: place.latitude,
                     longitude: place.longitude
                 };
-
                 context.setNewPlaces(latlng);
-                // place represents user's selection from the
-                // suggestions and it is a simplified Google Place object.
-            })
-            .catch(error => console.log(error.message));  // error is a Javascript Error object
+            }).catch(error => console.log(error.message));
     }
 
     render() {
         return (
-            <View>
-                <Button style={Style.ButtonPickedPlace} onPress={() => this.openSearchModal()}>
-                    <Text style={Style.TextButtonPickedPlace}>Pick a Place</Text>
-                </Button>
-            </View>
+            <Button style={Style.ButtonPickedPlace} onPress={() => this.openSearchModal()}>
+                <Text style={Style.TextButtonPickedPlace}>Pick a Place</Text>
+            </Button>
         );
     }
 }
