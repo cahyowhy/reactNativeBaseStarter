@@ -76,15 +76,6 @@ export default class Direction extends Component {
 
     onRegionChange(region) {
         this.setState({region});
-        /*console.log(region.latitude);
-         this.setState({
-         marker: {
-         latlng: {
-         latitude: region.latitude,
-         longitude: region.longitude
-         }
-         }
-         });*/
     }
 
     static navigationOptions = ({navigation}) => ({
