@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Platform, ToastAndroid, PermissionsAndroid} from 'react-native';
 import MapView from 'react-native-maps';
 import Style from './Style';
 import Utils from './RealmDb/Utils';
@@ -10,6 +10,7 @@ export default class FeedDetailView extends Component {
     constructor(props) {
         super(props);
         this.setPosition = this.setPosition.bind(this);
+        this.LocationRequest = this.LocationRequest.bind(this);
         this.state = {
             region: {
                 latitude: 0.0,
@@ -50,18 +51,56 @@ export default class FeedDetailView extends Component {
         console.log(this.state.polylines);
     }
 
+    async LocationRequest() {
+        const context = this;
+        if (Platform.OS === "android") {
+            console.log(PermissionsAndroid);
+            try {
+                const grantedAndroidPermission = await PermissionsAndroid.request(
+                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION, {
+                        'title': "App",
+                        'message': 'Allow App access your location'
+                    }
+                );
+
+                if (grantedAndroidPermission) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            context.setPosition(position)
+                        },
+                        (error) => alert(JSON.stringify(error)),
+                        {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+                    );
+
+                    this.watchID = navigator.geolocation.watchPosition((position) => {
+                        context.setPosition(position)
+                    });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+            console.log('im here false');
+        }
+
+    }
+
     componentDidMount() {
         const context = this;
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                context.setPosition(position)
-            },
-            (error) => alert(JSON.stringify(error)),
-            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-        );
-        this.watchID = navigator.geolocation.watchPosition((position) => {
-            context.setPosition(position)
-        });
+        ToastAndroid.show("adawd", ToastAndroid.LONG);
+        context.LocationRequest().done();
+
+        /*navigator.geolocation.getCurrentPosition(
+         (position) => {
+         context.setPosition(position)
+         },
+         (error) => alert(JSON.stringify(error)),
+         {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+         );
+
+         this.watchID = navigator.geolocation.watchPosition((position) => {
+         context.setPosition(position)
+         });*/
     }
 
     componentWillUnmount() {
