@@ -3,6 +3,7 @@ package com.anyarreact;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.showlocationservicesdialogbox.LocationServicesDialogBoxPackage;
 import io.realm.react.RealmReactPackage;
 import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LocationServicesDialogBoxPackage(),
             new RealmReactPackage(),
             new RNGooglePlacesPackage(),
             new MapsPackage()
